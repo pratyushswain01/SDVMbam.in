@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Copernicus Initiative - A Career Roadmap for Physics Students</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        .dark .hero-gradient {
+            background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #bottom-bar {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #bottom-bar.bottom-bar-hidden {
+            transform: translateY(150%);
+        }
+        
+        /* Sidebar Styles */
+        #sidebar {
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateX(100%);
+        }
+        #sidebar.open {
+            transform: translateX(0);
+        }
+        #sidebar-overlay {
+            transition: opacity 0.4s ease-in-out;
+        }
+        .sidebar-link {
+            transition: background-color 0.2s, transform 0.2s;
+        }
+        .sidebar-link:hover {
+            transform: translateX(4px);
+        }
+
+        /* Aurora Glow Effect */
+        .aurora-border {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem; /* Match your card's border-radius */
+        }
+        .aurora-border::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                from 180deg at 50% 50%,
+                #3b82f6, #8b5cf6, #ec4899, #f59e0b, #3b82f6
+            );
+            z-index: 1;
+            transform: translate(-25%, -25%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            animation: rotate 4s linear infinite;
+        }
+        .group:hover .aurora-border::before {
+            opacity: 1;
+        }
+        .aurora-content {
+            position: relative;
+            z-index: 2;
+            background: inherit; /* Inherit background from parent */
+            border-radius: inherit; /* Inherit border-radius */
+            padding: 1.5rem; /* Your card padding */
+        }
+        @keyframes rotate {
+            100% {
+                transform: translate(-25%, -25%) rotate(360deg);
+            }
+        }
+        
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #f9fafb;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .dark #preloader {
+            background-color: #111827;
+        }
+        #preloader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .spinner {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: 8px solid;
+            border-color: #dbdcef;
+            border-right-color: #4f46e5;
+            animation: spin 1s infinite linear;
+        }
+        .dark .spinner {
+            border-color: #4b5563;
+            border-right-color: #818cf8;
+        }
+        @keyframes spin {
+            to { transform: rotate(1turn); }
+        }
+
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-500">
+    
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <a href="#" class="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl">The Copernicus Initiative</a>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">SARASWATI DEGREE VIDYA MANDIR, NEELAKANTHANAGAR, BERHAMPUR</p>
+                </div>
+                <div class="flex items-center">
+                    <nav class="hidden md:flex space-x-6 items-center">
+                        <a href="#home" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Home</a>
+                        <a href="#pillars" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">The Four Pillars</a>
+                        <a href="#pdf" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Full PDF</a>
+                        <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Contact</a>
+                    </nav>
+                    <button id="theme-toggle" type="button" class="ml-6 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-gradient text-white">
+            <div class="container mx-auto px-6 py-24 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">A Career Roadmap for Physics Students</h1>
+                <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto">Your B.Sc. in Physics is more than a degree; it's a license to solve the world's toughest problems. You've been trained in the fundamental laws of the universe. Now, it's time to apply that training.</p>
+                <a href="#pillars" class="mt-8 inline-block bg-white text-blue-600 font-bold rounded-full py-3 px-8 text-lg hover:bg-gray-200 transition-transform transform hover:scale-105">Explore Your Path</a>
+            </div>
+        </section>
+
+        <!-- The Physics Mindset -->
+        <section id="mindset" class="py-20 bg-white dark:bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold">The Physics Mindset: Your True Superpower</h2>
+                    <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">It's not just what you know, it's how you think.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="bg-gray-100 dark:bg-gray-800 p-8 rounded-xl shadow-lg reveal">
+                        <h3 class="text-2xl font-bold mb-4">Principles Thinking</h3>
+                        <p class="text-gray-600 dark:text-gray-300">The ability to deconstruct complex problems into their fundamental, irreducible truths. You don't rely on assumptions; you question them, reasoning up from the core principles.</p>
+                    </div>
+                    <div class="bg-gray-100 dark:bg-gray-800 p-8 rounded-xl shadow-lg reveal" style="transition-delay: 0.2s;">
+                        <h3 class="text-2xl font-bold mb-4">Mathematical & Computational Modelling</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Translating messy, real-world phenomena into the clean language of equations and code. This allows you to simulate outcomes, predict the future, and develop a deep, quantitative intuition.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2025 Career Landscape -->
+        <section id="landscape" class="py-20 bg-gray-50 dark:bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold">The 2025 Career Landscape: Why You Are Mission-Critical</h2>
+                    <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">The world's problems are more complex than ever. The demand for fundamental problem-solvers has never been higher.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md text-center reveal">
+                        <h3 class="text-xl font-semibold mb-2">The Age of AI & Big Data</h3>
+                        <p>Your ability to model systems and separate signal from noise is an elite skill in a world drowning in data.</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md text-center reveal" style="transition-delay: 0.2s;">
+                        <h3 class="text-xl font-semibold mb-2">The "Deep Tech" Revolution</h3>
+                        <p>Breakthroughs in Quantum Computing, Fusion Energy, and New Materials require a mastery of fundamental physics. This is your home turf.</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md text-center reveal" style="transition-delay: 0.4s;">
+                        <h3 class="text-xl font-semibold mb-2">The Complexity Crisis</h3>
+                        <p>Global challenges like climate modeling and energy transition are massive, interconnected systems problems waiting for your analytical mind.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Four Pillars Summary -->
+        <section id="pillars" class="py-20 bg-white dark:bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold">Your Career Blueprint: The Four Pillars</h2>
+                    <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">Explore four distinct but interconnected paths. Click on a pillar to discover the opportunities within.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="group reveal"><a href="#pillar1" class="block p-0.5 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-lg transition-transform duration-300 group-hover:-translate-y-2 aurora-border"><div class="aurora-content bg-gray-100 dark:bg-gray-800"><h3 class="text-2xl font-bold mb-2">Pillar 1: The Scholar's Path</h3><p class="text-gray-600 dark:text-gray-300 mb-4">Pursue a career in academia, research, or highly specialized scientific roles.</p><span class="font-bold text-blue-600 dark:text-blue-400 group-hover:underline">Learn More &rarr;</span></div></a></div>
+                    <div class="group reveal" style="transition-delay: 0.1s;"><a href="#pillar2" class="block p-0.5 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-lg transition-transform duration-300 group-hover:-translate-y-2 aurora-border"><div class="aurora-content bg-gray-100 dark:bg-gray-800"><h3 class="text-2xl font-bold mb-2">Pillar 2: The Innovator's Path</h3><p class="text-gray-600 dark:text-gray-300 mb-4">Apply your skills at the frontier of technology, finance, and commerce.</p><span class="font-bold text-blue-600 dark:text-blue-400 group-hover:underline">Learn More &rarr;</span></div></a></div>
+                    <div class="group reveal" style="transition-delay: 0.2s;"><a href="#pillar3" class="block p-0.5 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-lg transition-transform duration-300 group-hover:-translate-y-2 aurora-border"><div class="aurora-content bg-gray-100 dark:bg-gray-800"><h3 class="text-2xl font-bold mb-2">Pillar 3: The Public Servant's Path</h3><p class="text-gray-600 dark:text-gray-300 mb-4">Serve the nation through administration, science, and defense.</p><span class="font-bold text-blue-600 dark:text-blue-400 group-hover:underline">Learn More &rarr;</span></div></a></div>
+                    <div class="group reveal" style="transition-delay: 0.3s;"><a href="#pillar4" class="block p-0.5 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-lg transition-transform duration-300 group-hover:-translate-y-2 aurora-border"><div class="aurora-content bg-gray-100 dark:bg-gray-800"><h3 class="text-2xl font-bold mb-2">Pillar 4: The Strategic Toolkit</h3><p class="text-gray-600 dark:text-gray-300 mb-4">Build the non-negotiable skills and experiences to excel on any path.</p><span class="font-bold text-blue-600 dark:text-blue-400 group-hover:underline">Learn More &rarr;</span></div></a></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pillar Details Sections -->
+        <section id="pillar1" class="py-20 bg-gray-50 dark:bg-gray-900"><div class="container mx-auto px-6 reveal"><h2 class="text-4xl font-bold text-center mb-12">Pillar 1: The Scholar's Path</h2><div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"><div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-2">Higher Education (M.Sc.)</h3><p>The gateway to specialization via exams like IIT JAM, unlocking top institutions like IITs, IISc, and NITs.</p></div><div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-2">Medical Physics</h3><p>Apply physics to diagnose and treat diseases. A stable, respected, and rewarding career in healthcare.</p></div><div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-2">Geophysics</h3><p>Map the Earth's subsurface to find natural resources. Key recruiters include ONGC and GSI.</p></div><div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-2">Materials Science</h3><p>Design the materials of the future, from semiconductors to next-gen batteries.</p></div><div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-2">Astronomy & Astrophysics</h3><p>Push the frontiers of knowledge at premier institutions like ISRO and TIFR.</p></div><div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-2">Strategic Pivots: MBA & MCA</h3><p>Combine your analytical mind with business acumen (MBA) or formal computational skills (MCA) for elite roles.</p></div></div></div></section>
+        <section id="pillar2" class="py-20 bg-white dark:bg-gray-900"><div class="container mx-auto px-6 reveal"><h2 class="text-4xl font-bold text-center mb-12">Pillar 2: The Innovator's Path</h2><div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"><div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-2">Business & Management</h3><p>Become a Business Analyst or Management Consultant, using first-principles thinking to solve corporate challenges.</p></div><div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-2">Data Science & AI/ML</h3><p>Teach computers to learn from data. Your background in modeling complex systems is a perfect fit.</p></div><div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-2">High Finance ("Quant")</h3><p>Use the mathematical toolkit of a physicist to model and predict financial markets.</p></div><div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-2">Entrepreneurship</h3><p>Your grit, technical credibility, and problem-solving skills are the DNA of a successful founder.</p></div><div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-2">Deep Tech Startups</h3><p>Build companies based on scientific breakthroughs in Quantum Computing, Fusion, or Advanced Materials.</p></div><div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-2">Niche Industries</h3><p>Apply physics in specialized fields like Acoustic Engineering or Renewable Energy Systems.</p></div></div></div></section>
+        <section id="pillar3" class="py-20 bg-gray-50 dark:bg-gray-900"><div class="container mx-auto px-6 reveal"><h2 class="text-4xl font-bold text-center mb-12">Pillar 3: The Public Servant's Path</h2><div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"><div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-2">Civil Services (UPSC)</h3><p>Join the "steel frame" of India's governance through exams for IAS, IPS, IFS. Your analytical mind is a key asset.</p></div><div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-2">Scientific Organizations</h3><p>Work at the forefront of science and technology for the nation at ISRO & DRDO as a Scientist or Technical Assistant.</p></div><div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-2">Specialized Government Roles</h3><p>Become a Meteorologist with the IMD, a Forensic Scientist, or a Patent Agent/Examiner for the government.</p></div></div></div></section>
+        <section id="pillar4" class="py-20 bg-white dark:bg-gray-900"><div class="container mx-auto px-6 reveal"><h2 class="text-4xl font-bold text-center mb-12">Pillar 4: The Strategic Toolkit</h2><div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"><div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-2">Computational Thinking (Python)</h3><p>Master the fundamental 21st-century skill of problem-solving through code. Python is your most versatile tool.</p></div><div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-2">Mathematical Software</h3><p>Gain proficiency in industry-standard tools like MATLAB, Mathematica, and LabVIEW to boost your resume.</p></div><div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-2">Communication</h3><p>Learn to explain complex ideas with clarity and precision to both expert and non-expert audiences.</p></div><div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-2">Practical Experience</h3><p>Gain real-world experience through internships at labs/companies or by building personal projects.</p></div><div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md"><h3 class="text-xl font-semibold mb-2">Professional Brand</h3><p>Build your network and create a powerful online presence through platforms like LinkedIn and GitHub.</p></div></div></div></section>
+
+        <!-- PDF Viewer Section -->
+        <section id="pdf" class="py-20 bg-gray-50 dark:bg-gray-900">
+            <div class="container mx-auto px-6 text-center reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">View the Complete Roadmap</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">Access the full, detailed PDF presentation for an in-depth look at all career options, strategies, and insights.</p>
+                <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg max-w-4xl mx-auto">
+                    <object data="BSc. Physics_20250823_112629_0000.pdf" type="application/pdf" width="100%" height="600px">
+                        <p class="py-4">It appears you don't have a PDF plugin for this browser. No biggie... you can <a href="BSc. Physics_20250823_112629_0000.pdf" class="text-blue-500 hover:underline">click here to download the PDF file.</a></p>
+                    </object>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-800 dark:bg-black text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div><h3 class="text-lg font-bold mb-4">The Copernicus Initiative</h3><p class="text-gray-400">A career roadmap for the next generation of physics problem-solvers.</p></div>
+                <div><h3 class="text-lg font-bold mb-4">Quick Links</h3><ul><li class="mb-2"><a href="#home" class="text-gray-400 hover:text-white">Home</a></li><li class="mb-2"><a href="#pillars" class="text-gray-400 hover:text-white">The Four Pillars</a></li><li class="mb-2"><a href="#pdf" class="text-gray-400 hover:text-white">Full PDF</a></li></ul></div>
+                <div><h3 class="text-lg font-bold mb-4">Connect</h3><ul><li class="mb-2"><a href="#" class="text-gray-400 hover:text-white">LinkedIn</a></li><li class="mb-2"><a href="#" class="text-gray-400 hover:text-white">GitHub</a></li><li class="mb-2"><a href="#" class="text-gray-400 hover:text-white">Email</a></li></ul></div>
+                <div><h3 class="text-lg font-bold mb-4">College</h3><p class="text-gray-400">Saraswati Degree Vidya Mandir<br>Neelakanthanagar, Berhampur</p></div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-8 text-center text-gray-500"><p>&copy; 2025 The Copernicus Initiative. All Rights Reserved.</p><p class="mt-2">Created by Pratyush Swain</p></div>
+        </div>
+    </footer>
+
+    <!-- Sidebar -->
+    <div id="sidebar-container" class="fixed inset-0 z-50 pointer-events-none">
+        <div id="sidebar-overlay" class="absolute inset-0 bg-black/50 opacity-0 pointer-events-none"></div>
+        <div id="sidebar" class="fixed top-0 right-0 h-full w-80 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg shadow-xl pointer-events-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8"><h2 class="text-2xl font-bold">Menu</h2><button id="close-sidebar" class="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button></div>
+                <nav class="flex flex-col space-y-2">
+                    <a href="#home" class="sidebar-link flex items-center space-x-3 p-3 rounded-lg text-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg><span>Home</span></a>
+                    <a href="#mindset" class="sidebar-link flex items-center space-x-3 p-3 rounded-lg text-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg><span>Mindset</span></a>
+                    <a href="#pillars" class="sidebar-link flex items-center space-x-3 p-3 rounded-lg text-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg><span>Pillars</span></a>
+                    <a href="#pdf" class="sidebar-link flex items-center space-x-3 p-3 rounded-lg text-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg><span>Full PDF</span></a>
+                    <a href="#contact" class="sidebar-link flex items-center space-x-3 p-3 rounded-lg text-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg><span>Contact</span></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Action Bar -->
+    <div id="bottom-bar" class="fixed bottom-4 left-1/2 -translate-x-1/2 w-auto bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm shadow-2xl rounded-full flex items-center justify-center p-2 space-x-2 z-40">
+        <a href="#mindset" title="About the Program" class="flex flex-col items-center text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 px-3 py-1 rounded-full transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-xs mt-1">About</span></a>
+        <a href="#pillars" title="Complete Structure" class="flex flex-col items-center text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 px-3 py-1 rounded-full transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg><span class="text-xs mt-1">Structure</span></a>
+        <a href="#pillar4" title="Get Started" class="flex flex-col items-center text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 px-3 py-1 rounded-full transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v11.494m-5.747-8.247l5.747 5.747 5.747-5.747"></path></svg><span class="text-xs mt-1">Toolkit</span></a>
+        <button id="menu-button" title="Menu" class="flex flex-col items-center text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 px-3 py-1 rounded-full transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg><span class="text-xs mt-1">Menu</span></button>
+    </div>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            preloader.classList.add('hidden');
+        });
+
+        // Theme Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            lightIcon.classList.remove('hidden');
+        } else {
+            darkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            darkIcon.classList.toggle('hidden');
+            lightIcon.classList.toggle('hidden');
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+
+        // Scroll Reveal Animation
+        function reveal() {
+            const reveals = document.querySelectorAll(".reveal");
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+
+        // Floating Action Bar Show/Hide
+        const bottomBar = document.getElementById('bottom-bar');
+        let lastScrollTop = 0;
+        window.addEventListener("scroll", function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 200) {
+                bottomBar.classList.add("bottom-bar-hidden");
+            } else {
+                bottomBar.classList.remove("bottom-bar-hidden");
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, false);
+
+        // Sidebar functionality
+        const menuButton = document.getElementById('menu-button');
+        const closeSidebarButton = document.getElementById('close-sidebar');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+        const sidebarContainer = document.getElementById('sidebar-container');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+        function openSidebar() {
+            sidebar.classList.add('open');
+            sidebarOverlay.classList.remove('opacity-0', 'pointer-events-none');
+            sidebarOverlay.classList.add('opacity-100');
+            sidebarContainer.classList.remove('pointer-events-none');
+        }
+
+        function closeSidebar() {
+            sidebar.classList.remove('open');
+            sidebarOverlay.classList.add('opacity-0');
+            sidebarOverlay.classList.remove('opacity-100');
+            setTimeout(() => {
+                sidebarOverlay.classList.add('pointer-events-none');
+                sidebarContainer.classList.add('pointer-events-none');
+            }, 300);
+        }
+
+        menuButton.addEventListener('click', openSidebar);
+        closeSidebarButton.addEventListener('click', closeSidebar);
+        sidebarOverlay.addEventListener('click', closeSidebar);
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', closeSidebar);
+        });
+
+    </script>
+</body>
+</ht
