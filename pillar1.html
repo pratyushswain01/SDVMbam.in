@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pillar 1: The Scholar's Path - Career Roadmap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .subnav-link.active {
+            background-color: #e0e7ff;
+            color: #3730a3;
+            font-weight: 600;
+            transform: translateX(4px);
+        }
+        .dark .subnav-link.active {
+            background-color: #374151;
+            color: #c7d2fe;
+        }
+        
+        #bottom-bar {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .dark #bottom-bar {
+            background: rgba(28, 28, 30, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        #bottom-bar.bottom-bar-hidden {
+            transform: translateY(150%);
+        }
+
+        #sidebar {
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateX(100%);
+        }
+        #sidebar.open {
+            transform: translateX(0);
+        }
+        #sidebar-overlay {
+            transition: opacity 0.4s ease-in-out;
+        }
+        .sidebar-link:hover, .sidebar-toggle:hover {
+            transform: translateX(4px);
+        }
+        #pillars-submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out;
+        }
+        #pillars-submenu.open {
+            max-height: 300px;
+        }
+        #pillars-chevron {
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-500">
+    
+    <header class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-sm sticky top-0 z-40">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <a href="index.html" class="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl">Career Orientation Program</a>
+                </div>
+                <div class="flex items-center">
+                    <nav class="hidden md:flex space-x-6 items-center">
+                         <a href="index.html#home" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Home</a>
+                         <a href="index.html#pillars" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">The Four Pillars</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-16">
+        <div class="lg:flex">
+             <aside class="w-full lg:w-1/4 lg:pr-8 mb-12 lg:mb-0">
+                <div class="lg:sticky lg:top-24">
+                    <h2 class="text-sm font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Pillar 1</h2>
+                    <h3 class="text-3xl font-extrabold text-gray-900 dark:text-white mt-2">The Scholar's Path</h3>
+                    <p class="mt-3 text-gray-600 dark:text-gray-300">This is the path of deep inquiry, for those driven to discover not just the 'how', but the fundamental 'why'.</p>
+                    <nav id="sub-nav" class="mt-8 space-y-2">
+                        <a href="#higher-education" class="subnav-link block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200">Higher Education</a>
+                        <a href="#research-scientist" class="subnav-link block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200">Research Scientist</a>
+                        <a href="#medical-physics" class="subnav-link block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200">Medical Physics</a>
+                        <a href="#geophysics" class="subnav-link block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200">Geophysics</a>
+                        <a href="#materials-science" class="subnav-link block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200">Materials Science</a>
+                        <a href="#astronomy" class="subnav-link block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200">Astronomy & Astrophysics</a>
+                    </nav>
+                </div>
+            </aside>
+
+            <div class="w-full lg:w-3/4 lg:pl-8 space-y-20">
+                <section id="higher-education" class="scroll-mt-24 pt-4 border-t-4 border-blue-500">
+                    <h3 class="text-3xl font-bold text-blue-600 dark:text-blue-400">Higher Education (M.Sc., Ph.D.)</h3>
+                    <div class="prose prose-lg dark:prose-invert max-w-none mt-4 text-gray-600 dark:text-gray-300">
+                        <p>This is the gateway to specialization and the first step toward becoming an independent creator of knowledge. Moving from a B.Sc. to an M.Sc. and potentially a Ph.D. is a transition from being a consumer of science to a producer of it.</p>
+                        <h4 class="font-semibold text-gray-900 dark:text-white">The Core Mission</h4>
+                        <p>To achieve deep mastery in a specific domain of physics (e.g., Condensed Matter, Particle Physics, Optics) and to learn the rigorous process of scientific research. The ultimate goal of a Ph.D. is to contribute a novel piece of understanding to the sum of human knowledge.</p>
+                        <div class="bg-blue-50 dark:bg-gray-800/50 p-6 rounded-xl my-6 border border-blue-200 dark:border-gray-700">
+                            <h5 class="font-bold text-lg text-blue-800 dark:text-blue-300">Key Takeaway</h5>
+                            <p class="mt-2 text-blue-700 dark:text-blue-300">This path isn't just about getting another degree; it's an apprenticeship in the art of discovery. It unlocks careers in academia, R&D, and highly specialized scientific roles.</p>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 dark:text-white">Essential Arsenal</h4>
+                        <ul>
+                            <li><strong>Exams:</strong> Focus intensely on national-level entrance exams like <strong>IIT JAM</strong>, <strong>JEST</strong>, and <strong>TIFR-GS</strong>.</li>
+                            <li><strong>Institutions:</strong> Aim for premier research institutes such as <strong>IISc Bangalore, TIFR, IITs, IISERs, and NISER</strong>.</li>
+                            <li><strong>Skills:</strong> Solidify your understanding of core subjects, particularly Quantum Mechanics, Classical Mechanics, and Mathematical Physics. Start learning a programming language like <strong>Python</strong> for data analysis.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="research-scientist" class="scroll-mt-24 pt-4 border-t-4 border-green-500">
+                    <h3 class="text-3xl font-bold text-green-600 dark:text-green-400">Research Scientist</h3>
+                     <div class="prose prose-lg dark:prose-invert max-w-none mt-4 text-gray-600 dark:text-gray-300">
+                        <p>As a research scientist, you apply the scientific method to solve complex problems in government laboratories or corporate R&D divisions. This role is about pushing the boundaries of technology and understanding, with direct applications to national security, space exploration, energy, or commercial products.</p>
+                        <h4 class="font-semibold text-gray-900 dark:text-white">A Glimpse into the Role</h4>
+                        <p>Daily life involves designing experiments, building or calibrating equipment, writing code to simulate systems or analyze data, collaborating with engineers and other scientists, and documenting results in technical reports or research papers.</p>
+                        <div class="bg-green-50 dark:bg-gray-800/50 p-6 rounded-xl my-6 border border-green-200 dark:border-gray-700">
+                             <h5 class="font-bold text-lg text-green-800 dark:text-green-300">Key Takeaway</h5>
+                             <p class="mt-2 text-green-700 dark:text-green-300">This is a path for the practical innovator who wants to see their work have a direct, measurable impact. It requires both deep scientific knowledge and strong project management skills.</p>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 dark:text-white">Essential Arsenal</h4>
+                        <ul>
+                            <li><strong>Qualifications:</strong> An M.Sc. is often the minimum entry point, but a Ph.D. is typically required for senior scientist roles.</li>
+                             <li><strong>Recruiters:</strong> Key government bodies include <strong>ISRO, DRDO, BARC, and CSIR labs</strong>.</li>
+                            <li><strong>Skills:</strong> Develop proficiency in software like <strong>MATLAB, LabVIEW, and Python</strong>. Gain experience with experimental techniques relevant to your field of interest (e.g., vacuum systems, spectroscopy).</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="medical-physics" class="scroll-mt-24 pt-4 border-t-4 border-rose-500">
+                    <h3 class="text-3xl font-bold text-rose-600 dark:text-rose-400">Medical Physics</h3>
+                    <div class="prose prose-lg dark:prose-invert max-w-none mt-4 text-gray-600 dark:text-gray-300">
+                       <p>Medical Physics is the application of physics principles to healthcare. It's a field with direct human impact, where you work alongside medical professionals to diagnose and treat diseases using advanced technology. It is a highly regulated and respected profession.</p>
+                        <div class="bg-rose-50 dark:bg-gray-800/50 p-6 rounded-xl my-6 border border-rose-200 dark:border-gray-700">
+                             <h5 class="font-bold text-lg text-rose-800 dark:text-rose-300">Key Takeaway</h5>
+                             <p class="mt-2 text-rose-700 dark:text-rose-300">This is a career for those who want to combine a love for fundamental physics with a mission to improve human health. It offers stability, respect, and profound personal satisfaction.</p>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 dark:text-white">Essential Arsenal</h4>
+                        <ul>
+                           <li><strong>Pathways:</strong> Pursue a specialized <strong>M.Sc. in Medical Physics</strong> from a recognized university. After the M.Sc., you must complete a one-year internship and clear the RSO (Radiation Safety Officer) exam conducted by the AERB.</li>
+                           <li><strong>Recruiters:</strong> Major hospitals (both government and private) like <strong>AIIMS, Tata Memorial, Apollo Hospitals, and Fortis</strong> are the primary employers.</li>
+                           <li><strong>Skills:</strong> A strong foundation in nuclear physics, radiation physics, and human anatomy is crucial. Precision, attention to detail, and excellent communication skills are non-negotiable.</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                 <section id="geophysics" class="scroll-mt-24 pt-4 border-t-4 border-amber-500">
+                     <h3 class="text-3xl font-bold text-amber-600 dark:text-amber-400">Geophysics</h3>
+                      <div class="prose prose-lg dark:prose-invert max-w-none mt-4 text-gray-600 dark:text-gray-300">
+                        <p>Geophysics involves using the principles of physics to study the Earth. From exploring for natural resources like oil and minerals deep underground to monitoring seismic activity and understanding the planet's magnetic field, geophysicists act as planetary detectives.</p>
+                         <div class="bg-amber-50 dark:bg-gray-800/50 p-6 rounded-xl my-6 border border-amber-200 dark:border-gray-700">
+                              <h5 class="font-bold text-lg text-amber-800 dark:text-amber-300">Key Takeaway</h5>
+                              <p class="mt-2 text-amber-700 dark:text-amber-300">This field is a unique blend of theoretical physics, computational modeling, and rugged fieldwork. It's ideal for those who enjoy both analytical challenges and adventure.</p>
+                         </div>
+                         <h4 class="font-semibold text-gray-900 dark:text-white">Essential Arsenal</h4>
+                         <ul>
+                            <li><strong>Pathways:</strong> A common route is an M.Sc. or M.Tech in Geophysics or Applied Geophysics, for which exams like <strong>IIT JAM</strong> are relevant.</li>
+                            <li><strong>Recruiters:</strong> Major public sector undertakings like <strong>ONGC, Oil India Ltd. (OIL), and the Geological Survey of India (GSI)</strong> are the largest recruiters.</li>
+                            <li><strong>Skills:</strong> Strong knowledge of wave mechanics, electromagnetism, and classical mechanics is essential. Proficiency in data processing and programming (Python/MATLAB) is highly valued.</li>
+                         </ul>
+                     </div>
+                 </section>
+
+                  <section id="materials-science" class="scroll-mt-24 pt-4 border-t-4 border-indigo-500">
+                      <h3 class="text-3xl font-bold text-indigo-600 dark:text-indigo-400">Materials Science</h3>
+                       <div class="prose prose-lg dark:prose-invert max-w-none mt-4 text-gray-600 dark:text-gray-300">
+                        <p>Materials Science is an interdisciplinary field that designs and discovers new materials. As a physicist, you explore the fundamental relationship between a material's atomic structure and its macroscopic properties (like electrical, magnetic, or optical properties), paving the way for next-generation technologies.</p>
+                          <div class="bg-indigo-50 dark:bg-gray-800/50 p-6 rounded-xl my-6 border border-indigo-200 dark:border-gray-700">
+                              <h5 class="font-bold text-lg text-indigo-800 dark:text-indigo-300">Key Takeaway</h5>
+                              <p class="mt-2 text-indigo-700 dark:text-indigo-300">This is the field where quantum mechanics meets engineering. It's perfect for physicists who want to build the physical foundation of future technology.</p>
+                         </div>
+                         <h4 class="font-semibold text-gray-900 dark:text-white">Essential Arsenal</h4>
+                         <ul>
+                            <li><strong>Pathways:</strong> An M.Sc. or Ph.D. with a specialization in Condensed Matter Physics is the standard route.</li>
+                            <li><strong>Recruiters:</strong> Research roles are available at institutions like <strong>TIFR, IGCAR, and CSIR labs</strong>. Industries in semiconductors, manufacturing, and energy also hire materials scientists.</li>
+                            <li><strong>Skills:</strong> Deep knowledge of quantum mechanics, solid-state physics, and thermodynamics is crucial. Experience with characterization techniques (like XRD, SEM) is a major plus.</li>
+                         </ul>
+                     </div>
+                 </section>
+
+                 <section id="astronomy" class="scroll-mt-24 pt-4 border-t-4 border-violet-500">
+                      <h3 class="text-3xl font-bold text-violet-600 dark:text-violet-400">Astronomy & Astrophysics</h3>
+                       <div class="prose prose-lg dark:prose-invert max-w-none mt-4 text-gray-600 dark:text-gray-300">
+                        <p>This is the ultimate pursuit of curiosity, applying the laws of physics to understand the largest and most extreme laboratory: the universe itself. It seeks to answer fundamental questions about the origin, evolution, and fate of stars, galaxies, and the cosmos.</p>
+                         <div class="bg-violet-50 dark:bg-gray-800/50 p-6 rounded-xl my-6 border border-violet-200 dark:border-gray-700">
+                              <h5 class="font-bold text-lg text-violet-800 dark:text-violet-300">Key Takeaway</h5>
+                              <p class="mt-2 text-violet-700 dark:text-violet-300">This path is for the deeply passionate and resilient problem-solver, driven by a desire to explore the unknown. It heavily relies on computational and data analysis skills.</p>
+                         </div>
+                         <h4 class="font-semibold text-gray-900 dark:text-white">Essential Arsenal</h4>
+                         <ul>
+                            <li><strong>Pathways:</strong> A Ph.D. is essential for a career in this field. Entrance exams like <strong>JEST</strong> are critical for admission into top institutes.</li>
+                            <li><strong>Institutions:</strong> Premier institutes in India include the <strong>Indian Institute of Astrophysics (IIA), IUCAA, TIFR, and Raman Research Institute (RRI)</strong>.</li>
+                            <li><strong>Skills:</strong> Master programming, especially <strong>Python</strong> and its scientific libraries (Astropy, NumPy). A strong background in classical mechanics, E&M, and statistical mechanics is fundamental.</li>
+                         </ul>
+                     </div>
+                 </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 dark:bg-black text-white mt-20">
+        <div class="container mx-auto px-6 py-12">
+            <div class="text-center">
+                <p>
+                    Saraswati Degree Vidya Mandir, Neelakanthanagar, Berhampur —
+                    Career Orientation Dept. of Physics | Created by Pratyush Swain
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="sidebar-container" class="fixed inset-0 z-50 pointer-events-none">
+        <div id="sidebar-overlay" class="absolute inset-0 bg-black/50 opacity-0 pointer-events-none"></div>
+        <div id="sidebar" class="fixed top-0 right-0 h-full w-80 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg shadow-xl pointer-events-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8"><h2 class="text-2xl font-bold">Menu</h2><button id="close-sidebar" class="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button></div>
+                <nav class="flex flex-col space-y-1">
+                    <a href="index.html#home" class="sidebar-link flex items-center space-x-3 p-3 rounded-lg text-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"><span>Home</span></a>
+                    <div>
+                        <button id="pillars-toggle" class="sidebar-toggle w-full flex items-center justify-between p-3 rounded-lg text-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">
+                            <div class="flex items-center space-x-3"><span>Pillars</span></div>
+                            <svg id="pillars-chevron" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="pillars-submenu" class="pl-5 pt-1">
+                            <a href="pillar1.html" class="sidebar-link flex items-center p-3 rounded-lg text-base text-blue-600 dark:text-blue-400 font-bold bg-gray-200 dark:bg-gray-700"><span>1. The Scholar's Path</span></a>
+                            <a href="pillar2.html" class="sidebar-link flex items-center p-3 rounded-lg text-base text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700"><span>2. The Innovator's Path</span></a>
+                            <a href="pillar3.html" class="sidebar-link flex items-center p-3 rounded-lg text-base text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700"><span>3. The Public Servant's Path</span></a>
+                            <a href="pillar4.html" class="sidebar-link flex items-center p-3 rounded-lg text-base text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700"><span>4. The Strategic Toolkit</span></a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="bottom-bar" class="fixed bottom-4 left-1/2 -translate-x-1/2 w-auto rounded-full flex items-center justify-center p-2 space-x-2 z-40">
+        <a href="index.html" title="Home" class="flex flex-col items-center text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 px-3 py-1 rounded-full transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg><span class="text-xs mt-1">Home</span></a>
+        <a href="index.html#pillars" title="All Pillars" class="flex flex-col items-center text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 px-3 py-1 rounded-full transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg><span class="text-xs mt-1">Pillars</span></a>
+        <button id="menu-button" title="Menu" class="flex flex-col items-center text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 px-3 py-1 rounded-full transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg><span class="text-xs mt-1">Menu</span></button>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('#sub-nav a');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`#sub-nav a[href="#${id}"]`);
+                    if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        navLink.classList.add('active');
+                    }
+                });
+            }, { rootMargin: '0px 0px -50% 0px', threshold: 0.5 });
+            sections.forEach(section => observer.observe(section));
+        });
+
+        const bottomBar = document.getElementById('bottom-bar');
+        let lastScrollTop = 0;
+        window.addEventListener("scroll", function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            bottomBar.classList.toggle("bottom-bar-hidden", scrollTop > lastScrollTop && scrollTop > 200);
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, false);
+
+        const menuButton = document.getElementById('menu-button');
+        const closeSidebarButton = document.getElementById('close-sidebar');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+        const sidebarContainer = document.getElementById('sidebar-container');
+        function openSidebar() {
+            sidebar.classList.add('open');
+            sidebarOverlay.classList.remove('opacity-0', 'pointer-events-none');
+            sidebarContainer.classList.remove('pointer-events-none');
+        }
+        function closeSidebar() {
+            sidebar.classList.remove('open');
+            sidebarOverlay.classList.add('opacity-0');
+            setTimeout(() => {
+                sidebarOverlay.classList.add('pointer-events-none');
+                sidebarContainer.classList.add('pointer-events-none');
+            }, 400);
+        }
+        menuButton.addEventListener('click', openSidebar);
+        closeSidebarButton.addEventListener('click', closeSidebar);
+        sidebarOverlay.addEventListener('click', closeSidebar);
+
+        const pillarsToggle = document.getElementById('pillars-toggle');
+        const pillarsSubmenu = document.getElementById('pillars-submenu');
+        const pillarsChevron = document.getElementById('pillars-chevron');
+        pillarsToggle.addEventListener('click', () => {
+            pillarsSubmenu.classList.toggle('open');
+            pillarsChevron.classList.toggle('rotate-180');
+        });
+    </script>
+</body>
+</html>
