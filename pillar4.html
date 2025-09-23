@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pillar 4: The Strategic Toolkit - Career Roadmap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .subnav-link.active {
+            background-color: #dcfce7; /* green-100 */
+            color: #16a34a; /* green-600 */
+            font-weight: 600;
+            transform: translateX(4px);
+        }
+        .dark .subnav-link.active {
+            background-color: #374151;
+            color: #86efac; /* green-300 */
+        }
+        
+        #bottom-bar {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .dark #bottom-bar {
+            background: rgba(28, 28, 30, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        #bottom-bar.bottom-bar-hidden {
+            transform: translateY(150%);
+        }
+
+        #sidebar {
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateX(100%);
+        }
+        #sidebar.open {
+            transform: translateX(0);
+        }
+        #sidebar-overlay {
+            transition: opacity 0.4s ease-in-out;
+        }
+        .sidebar-link:hover, .sidebar-toggle:hover {
+            transform: translateX(4px);
+        }
+        #pillars-submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out;
+        }
+        #pillars-submenu.open {
+            max-height: 300px;
+        }
+        #pillars-chevron {
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-500">
+    
+    <header class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-sm sticky top-0 z-40">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <a href="index.html" class="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl">Career Orientation Program</a>
+                </div>
+                <div class="flex items-center">
+                    <nav class="hidden md:flex space-x-6 items-center">
+                         <a href="index.html#home" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Home</a>
+                         <a href="index.html#pillars" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">The Four Pillars</a>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-16">
+        <div class="lg:flex">
+             <aside class="w-full lg:w-1-4 lg:pr-8 mb-12 lg:mb-0">
+                <div class="lg:sticky lg:top-24">
+                    <h2 class="text-sm font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Pillar 4</h2>
+                    <h3 class="text-3xl font-extrabold text-gray-900 dark:text-white mt-2">The Strategic Toolkit</h3>
+                    <p class="mt-3 text-gray-600 dark:text-gray-300">These are the non-negotiable, cross-domain skills that amplify your success regardless of which path you choose.</p>
+                    <nav id="sub-nav" class="mt-8 space-y-2">
+                        <a href="#computation" class="subnav-link block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200">Computational Thinking</a>
+                        <a href="#software" class="subnav-link block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200">Mathematical Software</a>
+                        <a href="#communication" class="subnav-link block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200">Communication</a>
+                        <a href="#experience" class="subnav-link block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200">Practical Experience</a>
+                        <a href="#brand" class="subnav-link block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200">Professional Brand</a>
+                    </nav>
+                </div>
+            </aside>
+
+            <div class="w-full lg:w-3/4 lg:pl-8 space-y-20">
+                <section id="computation" class="scroll-mt-24 pt-4 border-t-4 border-green-500">
+                    <h3 class="text-3xl font-bold text-green-600 dark:text-green-400">Computational Thinking (Python) 💻</h3>
+                    <div class="prose prose-lg dark:prose-invert max-w-none mt-4 text-gray-600 dark:text-gray-300">
+                        <p>In the 21st century, knowing how to code is a fundamental skill, equivalent to literacy in previous generations. It's the art of breaking down complex problems into logical steps that a computer can execute, and Python is the most versatile language for scientists.</p>
+                        <div class="bg-green-50 dark:bg-gray-800/50 p-6 rounded-xl my-6 border border-green-200 dark:border-gray-700">
+                            <h5 class="font-bold text-lg text-green-800 dark:text-green-300">Why It's Non-Negotiable</h5>
+                            <p class="mt-2 text-green-700 dark:text-green-300">Learning Python isn't about becoming a software developer; it's about upgrading your thinking. It enables you to automate, analyze, and model at a scale and speed impossible to achieve manually.</p>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 dark:text-white">Actionable Steps</h4>
+                        <ul>
+                            <li><strong>First Steps:</strong> Master the basics (syntax, data structures, loops) on platforms like Coursera, freeCodeCamp, or Codecademy.</li>
+                            <li><strong>Key Libraries:</strong> Focus on the scientific stack: **NumPy** for numerical arrays, **Pandas** for data manipulation, and **Matplotlib/Seaborn** for data visualization.</li>
+                            <li><strong>Application:</strong> Apply your skills immediately. Solve physics problems numerically, analyze data from your lab experiments, or build a simple web app to visualize a concept.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="software" class="scroll-mt-24 pt-4 border-t-4 border-lime-500">
+                    <h3 class="text-3xl font-bold text-lime-600 dark:text-lime-400">Mathematical Software 📊</h3>
+                     <div class="prose prose-lg dark:prose-invert max-w-none mt-4 text-gray-600 dark:text-gray-300">
+                        <p>While Python is a general-purpose tool, specialized software packages are the heavy machinery of scientific and engineering work. Proficiency in these industry-standard tools signals to employers that you are ready to contribute from day one.</p>
+                        <div class="bg-lime-50 dark:bg-gray-800/50 p-6 rounded-xl my-6 border border-lime-200 dark:border-gray-700">
+                             <h5 class="font-bold text-lg text-lime-800 dark:text-lime-300">Why It's Non-Negotiable</h5>
+                             <p class="mt-2 text-lime-700 dark:text-lime-300">Knowing how to operate these tools makes you a more capable and efficient scientist or engineer, allowing you to tackle complex simulations, symbolic math, and instrument control.</p>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 dark:text-white">Actionable Steps</h4>
+                        <ul>
+                            <li><strong>MATLAB:</strong> Widely used in engineering, control systems, and signal processing. Focus on its powerful matrix operations and simulation capabilities (Simulink).</li>
+                            <li><strong>Mathematica:</strong> Unmatched for symbolic mathematics and theoretical physics. Use it to solve complex integrals and differential equations that are tedious by hand.</li>
+                            <li><strong>LabVIEW:</strong> The gold standard for experimental physics. Learn it to automate data acquisition and control laboratory instruments, a highly valued skill in R&D labs.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="communication" class="scroll-mt-24 pt-4 border-t-4 border-emerald-500">
+                    <h3 class="text-3xl font-bold text-emerald-600 dark:text-emerald-400">Communication 📣</h3>
+                     <div class="prose prose-lg dark:prose-invert max-w-none mt-4 text-gray-600 dark:text-gray-300">
+                        <p>A brilliant idea is worthless if it cannot be clearly explained to others. Effective communication—in writing, speaking, and visualization—is the skill that translates technical genius into leadership and influence.</p>
+                        <div class="bg-emerald-50 dark:bg-gray-800/50 p-6 rounded-xl my-6 border border-emerald-200 dark:border-gray-700">
+                             <h5 class="font-bold text-lg text-emerald-800 dark:text-emerald-300">Why It's Non-Negotiable</h5>
+                             <p class="mt-2 text-emerald-700 dark:text-emerald-300">Great communication multiplies the impact of all your other skills. It's how you get funding for a project, convince a team of your strategy, or inspire others with your vision.</p>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 dark:text-white">Actionable Steps</h4>
+                        <ul>
+                            <li><strong>Writing:</strong> Start a blog. Practice summarizing complex research papers in simple terms. Write excellent, detailed documentation for your projects.</li>
+                            <li><strong>Speaking:</strong> Join a public speaking club. Actively seek opportunities to present your work in class or seminars. Ask for feedback.</li>
+                            <li><strong>Visualization:</strong> Learn to create clear, compelling charts and diagrams that tell a story with data. Master a tool like Matplotlib or Tableau.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="experience" class="scroll-mt-24 pt-4 border-t-4 border-cyan-500">
+                    <h3 class="text-3xl font-bold text-cyan-600 dark:text-cyan-400">Practical Experience 🛠️</h3>
+                     <div class="prose prose-lg dark:prose-invert max-w-none mt-4 text-gray-600 dark:text-gray-300">
+                        <p>A degree proves you can learn, but practical experience proves you can *do*. Internships and personal projects are where you bridge the gap between theory and reality, build a track record of accomplishment, and discover what you truly enjoy.</p>
+                        <div class="bg-cyan-50 dark:bg-gray-800/50 p-6 rounded-xl my-6 border border-cyan-200 dark:border-gray-700">
+                             <h5 class="font-bold text-lg text-cyan-800 dark:text-cyan-300">Why It's Non-Negotiable</h5>
+                             <p class="mt-2 text-cyan-700 dark:text-cyan-300">Experience is the currency of the professional world. Your resume needs to show not just what you know, but what you have built, contributed to, and achieved.</p>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 dark:text-white">Actionable Steps</h4>
+                        <ul>
+                            <li><strong>Internships:</strong> Actively pursue summer internships at national labs (BARC, ISRO), university research programs (SURF programs), or in tech/finance companies. Start applying months in advance.</li>
+                            <li><strong>Personal Projects:</strong> Don't wait for permission. Build something. Analyze a public dataset, replicate a famous experiment, contribute to an open-source project, or build a simple physics simulation.</li>
+                            <li><strong>Document Everything:</strong> A well-documented project on GitHub is far more impressive than an unsubstantiated claim on a resume.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="brand" class="scroll-mt-24 pt-4 border-t-4 border-teal-500">
+                    <h3 class="text-3xl font-bold text-teal-600 dark:text-teal-400">Professional Brand 🌐</h3>
+                     <div class="prose prose-lg dark:prose-invert max-w-none mt-4 text-gray-600 dark:text-gray-300">
+                        <p>In the digital age, your career begins online long before your first interview. A professional brand is how you shape the world's perception of your skills and ambitions. A strong brand helps opportunities find *you*.</p>
+                        <div class="bg-teal-50 dark:bg-gray-800/50 p-6 rounded-xl my-6 border border-teal-200 dark:border-gray-700">
+                             <h5 class="font-bold text-lg text-teal-800 dark:text-teal-300">Why It's Non-Negotiable</h5>
+                             <p class="mt-2 text-teal-700 dark:text-teal-300">Recruiters and collaborators will Google you. Your online presence should reflect a passionate, engaged, and professional individual who is serious about their field.</p>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 dark:text-white">Actionable Steps</h4>
+                        <ul>
+                            <li><strong>LinkedIn:</strong> Create a complete, professional profile. Use a clear headshot, write a compelling summary, and detail your projects and experiences. Share relevant articles and insights.</li>
+                            <li><strong>GitHub:</strong> For any technical role, this is your modern portfolio. Keep your profile clean, pin your best projects, and create excellent README files explaining what each project does.</li>
+                            <li><strong>Networking:</strong> Attend webinars and seminars in your field. Ask thoughtful questions. Connect with speakers and peers on LinkedIn afterwards with a personalized note.</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+     <footer class="bg-gray-800 dark:bg-black text-white mt-20">
+        <div class="container mx-auto px-6 py-12">
+            <div class="text-center">
+                <p>
+                    Saraswati Degree Vidya Mandir, Neelakanthanagar, Berhampur —
+                    Career Orientation Dept. of Physics | Created by Pratyush Swain
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    
+
+    <div id="sidebar-container" class="fixed inset-0 z-50 pointer-events-none">
+        <div id="sidebar-overlay" class="absolute inset-0 bg-black/50 opacity-0 pointer-events-none"></div>
+        <div id="sidebar" class="fixed top-0 right-0 h-full w-80 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg shadow-xl pointer-events-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8"><h2 class="text-2xl font-bold">Menu</h2><button id="close-sidebar" class="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button></div>
+                <nav class="flex flex-col space-y-1">
+                    <a href="index.html#home" class="sidebar-link flex items-center space-x-3 p-3 rounded-lg text-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"><span>Home</span></a>
+                    <div>
+                        <button id="pillars-toggle" class="sidebar-toggle w-full flex items-center justify-between p-3 rounded-lg text-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">
+                            <div class="flex items-center space-x-3"><span>Pillars</span></div>
+                            <svg id="pillars-chevron" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="pillars-submenu" class="pl-5 pt-1">
+                            <a href="pillar1.html" class="sidebar-link flex items-center p-3 rounded-lg text-base text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700"><span>1. The Scholar's Path</span></a>
+                            <a href="pillar2.html" class="sidebar-link flex items-center p-3 rounded-lg text-base text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700"><span>2. The Innovator's Path</span></a>
+                            <a href="pillar3.html" class="sidebar-link flex items-center p-3 rounded-lg text-base text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700"><span>3. The Public Servant's Path</span></a>
+                            <a href="pillar4.html" class="sidebar-link flex items-center p-3 rounded-lg text-base text-green-600 dark:text-green-400 font-bold bg-gray-200 dark:bg-gray-700"><span>4. The Strategic Toolkit</span></a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="bottom-bar" class="fixed bottom-4 left-1/2 -translate-x-1/2 w-auto rounded-full flex items-center justify-center p-2 space-x-2 z-40">
+        <a href="index.html" title="Home" class="flex flex-col items-center text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 px-3 py-1 rounded-full transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg><span class="text-xs mt-1">Home</span></a>
+        <a href="index.html#pillars" title="All Pillars" class="flex flex-col items-center text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 px-3 py-1 rounded-full transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg><span class="text-xs mt-1">Pillars</span></a>
+        <button id="menu-button" title="Menu" class="flex flex-col items-center text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 px-3 py-1 rounded-full transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg><span class="text-xs mt-1">Menu</span></button>
+    </div>
+
+    <script>
+        // Theme Toggle Script
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        if (themeToggleBtn) {
+            const darkIcon = document.getElementById('theme-toggle-dark-icon');
+            const lightIcon = document.getElementById('theme-toggle-light-icon');
+            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                if(lightIcon) lightIcon.classList.remove('hidden');
+            } else {
+                if(darkIcon) darkIcon.classList.remove('hidden');
+            }
+            themeToggleBtn.addEventListener('click', function() {
+                if(darkIcon) darkIcon.classList.toggle('hidden');
+                if(lightIcon) lightIcon.classList.toggle('hidden');
+                if (localStorage.getItem('color-theme')) {
+                    if (localStorage.getItem('color-theme') === 'light') {
+                        document.documentElement.classList.add('dark');
+                        localStorage.setItem('color-theme', 'dark');
+                    } else {
+                        document.documentElement.classList.remove('dark');
+                        localStorage.setItem('color-theme', 'light');
+                    }
+                } else {
+                    if (document.documentElement.classList.contains('dark')) {
+                        document.documentElement.classList.remove('dark');
+                        localStorage.setItem('color-theme', 'light');
+                    } else {
+                        document.documentElement.classList.add('dark');
+                        localStorage.setItem('color-theme', 'dark');
+                    }
+                }
+            });
+        }
+        
+        // Scroll-Spy for Sticky Navigation
+        window.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('#sub-nav a');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`#sub-nav a[href="#${id}"]`);
+                    if (navLink && entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        navLink.classList.add('active');
+                    }
+                });
+            }, { rootMargin: '0px 0px -50% 0px', threshold: 0.5 });
+            sections.forEach(section => observer.observe(section));
+        });
+
+        // Floating Action Bar Show/Hide
+        const bottomBar = document.getElementById('bottom-bar');
+        let lastScrollTop = 0;
+        window.addEventListener("scroll", function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if(bottomBar) bottomBar.classList.toggle("bottom-bar-hidden", scrollTop > lastScrollTop && scrollTop > 200);
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, false);
+
+        // Sidebar Functionality
+        const menuButton = document.getElementById('menu-button');
+        const closeSidebarButton = document.getElementById('close-sidebar');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+        const sidebarContainer = document.getElementById('sidebar-container');
+        function openSidebar() {
+            if(sidebar) sidebar.classList.add('open');
+            if(sidebarOverlay) sidebarOverlay.classList.remove('opacity-0', 'pointer-events-none');
+            if(sidebarContainer) sidebarContainer.classList.remove('pointer-events-none');
+        }
+        function closeSidebar() {
+            if(sidebar) sidebar.classList.remove('open');
+            if(sidebarOverlay) sidebarOverlay.classList.add('opacity-0');
+            setTimeout(() => {
+                if(sidebarOverlay) sidebarOverlay.classList.add('pointer-events-none');
+                if(sidebarContainer) sidebarContainer.classList.add('pointer-events-none');
+            }, 400);
+        }
+        if(menuButton) menuButton.addEventListener('click', openSidebar);
+        if(closeSidebarButton) closeSidebarButton.addEventListener('click', closeSidebar);
+        if(sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
+
+        // Sidebar Accordion
+        const pillarsToggle = document.getElementById('pillars-toggle');
+        const pillarsSubmenu = document.getElementById('pillars-submenu');
+        const pillarsChevron = document.getElementById('pillars-chevron');
+        if(pillarsToggle) {
+            pillarsToggle.addEventListener('click', () => {
+                if(pillarsSubmenu) pillarsSubmenu.classList.toggle('open');
+                if(pillarsChevron) pillarsChevron.classList.toggle('rotate-180');
+            });
+        }
+    </script>
+</body>
+</html>
