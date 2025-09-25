@@ -177,11 +177,11 @@
             <div class="flex items-center justify-between">
                 <div>
                   <a href="#" class="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl">
-  Career Orientation Program
+    Career Orientation Program
 </a>
 <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
-  SARASWATI DEGREE VIDYA MANDIR, NEELAKANTHANAGAR, BERHAMPUR <br>
-  Dept. of Physics
+    SARASWATI DEGREE VIDYA MANDIR, NEELAKANTHANAGAR, BERHAMPUR <br>
+    Dept. of Physics
 </p>
 
                 </div>
@@ -192,7 +192,6 @@
                         <a href="#pdf" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Full PDF</a>
                         <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">Contact</a>
                     </nav>
-                 
                 </div>
             </div>
         </div>
@@ -264,12 +263,12 @@
             </div>
         </section>
 
-           <section id="pdf" class="py-20 bg-gray-50 dark:bg-gray-900">
+               <section id="pdf" class="py-20 bg-gray-50 dark:bg-gray-900">
             <div class="container mx-auto px-6 text-center reveal">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">View the Complete Roadmap</h2>
                 <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">Access the full, detailed PDF presentation for an in-depth look at all career options, strategies, and insights.</p>
                 <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg max-w-4xl mx-auto">
-                  <!-- Original Physics PDF -->
+                   <!-- Original Physics PDF -->
 <object data="BSc_Physics_20250823_112629_0000.pdf" type="application/pdf" width="100%" height="600px">
     <p class="py-4">
         It appears you don't have a PDF plugin for this browser. No biggie... you can 
@@ -286,7 +285,6 @@
         <a href="Orientation_Program_Summary.pdf" class="text-blue-500 hover:underline">click here to download the Orientation Summary PDF.</a>
     </p>
 </object>
-
 
                 </div>
             </div>
@@ -349,39 +347,6 @@
         window.addEventListener('load', () => {
             const preloader = document.getElementById('preloader');
             preloader.classList.add('hidden');
-        });
-
-        // Theme Toggle
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const darkIcon = document.getElementById('theme-toggle-dark-icon');
-        const lightIcon = document.getElementById('theme-toggle-light-icon');
-
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            lightIcon.classList.remove('hidden');
-        } else {
-            darkIcon.classList.remove('hidden');
-        }
-
-        themeToggleBtn.addEventListener('click', function() {
-            darkIcon.classList.toggle('hidden');
-            lightIcon.classList.toggle('hidden');
-            if (localStorage.getItem('color-theme')) {
-                if (localStorage.getItem('color-theme') === 'light') {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('color-theme', 'dark');
-                } else {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
-                }
-            } else {
-                if (document.documentElement.classList.contains('dark')) {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
-                } else {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('color-theme', 'dark');
-                }
-            }
         });
 
         // Scroll Reveal Animation
